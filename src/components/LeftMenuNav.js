@@ -1,27 +1,38 @@
+// import InboxListItem from './InboxListItem'
+
 function LeftMenuNav(props) {
   console.log('LeftMenu Props: ', props)
 
   return (
     <nav className="left-menu">
       <ul className="inbox-list">
-        <InboxListItem tabName="inbox" />
-        <InboxListItem tabName="starred" />
+        {/* <InboxListItem
+          tabName="inbox"
+          setCurrentTab ={props.setCurrentTab}
+          currentTab ={props.currentTab}
+          unreadEmails ={props.unreadEmails}
+        />
+        <InboxListItem
+          tabName="starred"
+          setCurrentTab ={props.setCurrentTab}
+          currentTab ={props.currentTab}
+          starredEmails ={props.starredEmails}
+        /> */}
         <li
           className={`item ${props.currentTab === 'inbox' ? 'active' : ''}`}
           onClick={() => props.setCurrentTab('inbox')}
         >
+          {' '}
           <span className="label">Inbox</span>
           <span className="count">{props.unreadEmails.length}</span>
         </li>
-
         <li
           className={`item ${props.currentTab === 'starred' ? 'active' : ''}`}
           onClick={() => props.setCurrentTab('starred')}
         >
           <span className="label">Starred</span>
-          <span className="count">{props.starredEmails.length}</span>
-        </li>
-
+          <span className="count">{props.starredEmails.length}</span>{' '}
+        </li>{' '}
         <li className="item toggle">
           <label htmlFor="hide-read">Hide read</label>
           <input
